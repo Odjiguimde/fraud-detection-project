@@ -1036,8 +1036,7 @@ elif page == "Bénéfices & Impact":
                          color_discrete_sequence=[COLOR_FRAUD,'#ff6b81','#ff9f43',COLOR_WARN,COLOR_ACCENT,'#ab47bc'],
                          hover_name="Type de fraude", size_max=50,
                          labels={"Fréquence (%)":"Fréquence relative (%)","Montant moyen (K FCFA)":"Montant moyen (FCFA × 1000)"})
-        fig.update_layout(**PLOTLY_LAYOUT, height=380,
-                          xaxis=dict(gridcolor='#1e2a42'), yaxis=dict(gridcolor='#1e2a42'))
+        fig.update_layout(**PLOTLY_LAYOUT, height=380)
         st.plotly_chart(fig, use_container_width=True)
         st.markdown("""<div style="font-size:0.75rem; color:#6b7a99; font-family:'JetBrains Mono',monospace; margin-top:-0.5rem;">
         La taille des bulles représente la difficulté de détection (1=facile, 10=très difficile). Source : données simulées inspirées du contexte UEMOA / CGAP 2022-2024.
