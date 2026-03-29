@@ -1,9 +1,9 @@
-# 🚨 Projet de Détection de Fraude sur Transactions Financières
+# Projet de Détection de Fraude sur Transactions Financières
 ## (Ingénierie de Données & Intelligence Artificielle)
 
 ---
 
-## 📌 Présentation du projet
+## Présentation du projet
 
 Ce projet vise à concevoir un **système de détection de transactions frauduleuses** à partir de données financières, en combinant **ingénierie de données, analyse exploratoire et modélisation en intelligence artificielle**.
 
@@ -11,42 +11,42 @@ Il s'inspire directement des problématiques rencontrées par les **fintechs, ba
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
-✅ Comprendre et analyser des données transactionnelles  
-✅ Identifier des patterns de fraude  
-✅ Préparer des données pour un modèle d'IA  
-✅ Construire un modèle de détection de fraude interprétable  
-✅ Simuler un cas réel de prévention des risques financiers  
+- Comprendre et analyser des données transactionnelles
+- Identifier des patterns de fraude
+- Préparer des données pour un modèle d'IA
+- Construire un modèle de détection de fraude interprétable
+- Simuler un cas réel de prévention des risques financiers
 
 ---
 
-## 🧠 Problématique métier
+## Problématique métier
 
 La **fraude financière** représente un risque majeur pour les plateformes de paiement. L'objectif est de répondre à des questions telles que :
 
-- ❓ Quelles transactions présentent un risque élevé ?
-- ❓ Existe-t-il des heures ou types de transactions plus frauduleux ?
-- ❓ Comment automatiser la détection des comportements suspects ?
-- ❓ Quels sont les patterns spécifiques au contexte sénégalais ?
+- Quelles transactions présentent un risque élevé ?
+- Existe-t-il des heures ou types de transactions plus frauduleux ?
+- Comment automatiser la détection des comportements suspects ?
+- Quels sont les patterns spécifiques au contexte sénégalais ?
 
 ---
 
-## 🗂 Description du jeu de données
+## Description du jeu de données
 
-### 📄 Type de données
+### Type de données
 
 - **Données transactionnelles simulées**
 - Inspirées de **cas réels Mobile Money et bancaires**
 - Basées sur des **études de fraude en Afrique de l'Ouest** (GSMA, GIABA, BCEAO)
 
-### 📦 Taille du dataset
+### Taille du dataset
 
 - **100 000 transactions** sur 6 mois (juillet-décembre 2024)
 - **~6 000 fraudes** détectées (taux réaliste de ~6%)
 - **Taille** : ~50 MB
 
-### 📑 Colonnes principales
+### Colonnes principales
 
 | Colonne | Description |
 |---------|-------------|
@@ -64,7 +64,7 @@ La **fraude financière** représente un risque majeur pour les plateformes de p
 | `is_fraud` | **Indicateur de fraude** (0 = normal, 1 = suspect) |
 | `fraud_type` | Type de fraude détecté |
 
-### 🚨 Types de fraudes simulés
+### Types de fraudes simulés
 
 Basés sur des études réelles (GSMA, GIABA, BCEAO) :
 
@@ -75,13 +75,13 @@ Basés sur des études réelles (GSMA, GIABA, BCEAO) :
 5. **Fermes SIM** (5%) : Multiples cartes SIM pour micro-transactions
 6. **Agent Complice** (3%) : Vol de téléphone distributeur
 
-### 📌 Remarque sur le déséquilibre
+### Remarque sur le déséquilibre
 
 Le dataset est **volontairement déséquilibré** (~6% de fraudes), ce qui reflète les cas réels et constitue un **défi technique** pour la modélisation.
 
 ---
 
-## 🛠 Technologies utilisées
+## Technologies utilisées
 
 - **Python 3.12**
 - **Pandas** / **NumPy** - Manipulation de données
@@ -94,8 +94,7 @@ Le dataset est **volontairement déséquilibré** (~6% de fraudes), ce qui refl�
 
 ---
 
-## 🏗 Structure du projet
-
+## Structure du projet
 ```
 fraud-detection-project/
 │
@@ -116,27 +115,27 @@ fraud-detection-project/
 
 ---
 
-## 🔄 Pipeline du projet
+## Pipeline du projet
 
-### 1️⃣ Exploration des données
+### 1. Exploration des données
 - Analyse de la structure
 - Identification des déséquilibres
 - Compréhension des variables clés
 - Visualisation des patterns de fraude
 
-### 2️⃣ Prétraitement & Feature Engineering
+### 2. Prétraitement & Feature Engineering
 - Nettoyage des données
 - Encodage des variables catégorielles (One-Hot Encoding)
 - Normalisation des montants
 - Création de variables temporelles (jour de la semaine, période)
 - Gestion du déséquilibre (SMOTE, Random Under-sampling)
 
-### 3️⃣ Modélisation IA
+### 3. Modélisation IA
 - **Modèles utilisés** :
   - Régression Logistique (baseline)
   - Random Forest (modèle principal)
   - XGBoost (optionnel - performance maximale)
-- **Évaluation avec** :
+- **Evaluation avec** :
   - Precision
   - Recall
   - F1-score
@@ -146,17 +145,17 @@ fraud-detection-project/
 
 ---
 
-## 📈 Résultats clés attendus
+## Résultats clés attendus
 
-- ✅ Identification de transactions à haut risque
-- ✅ Mise en évidence des périodes et types de transactions sensibles
-- ✅ Modèle capable de détecter la fraude avec **Recall > 80%**
-- ✅ Approche explicable et adaptée à un usage métier
-- ✅ Réduction des faux positifs (False Positive Rate < 5%)
+- Identification de transactions à haut risque
+- Mise en évidence des périodes et types de transactions sensibles
+- Modèle capable de détecter la fraude avec **Recall > 80%**
+- Approche explicable et adaptée à un usage métier
+- Réduction des faux positifs (False Positive Rate < 5%)
 
 ---
 
-## 🌍 Contexte sénégalais et africain
+## Contexte sénégalais et africain
 
 ### Sources de données réelles utilisées
 
@@ -183,25 +182,23 @@ fraud-detection-project/
 
 ---
 
-## 🚀 Exécution du projet
+## Exécution du projet
 
 ### Installation des dépendances
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Génération des données (optionnel)
-
 ```bash
 python scripts/generate_transactions.py
 ```
 
 **Résultat attendu :**
 ```
-✅ Dataset sauvegardé : data/transactions.csv
-📊 Taille : 50.38 MB
-🚨 Fraudes : 6,011 (6.01%)
+Dataset sauvegardé : data/transactions.csv
+Taille : 50.38 MB
+Fraudes : 6,011 (6.01%)
 ```
 
 ### Exploration et modélisation
@@ -217,36 +214,36 @@ jupyter notebook notebooks/
 
 ---
 
-## 🎓 Compétences démontrées
+## Compétences démontrées
 
 ### Compétences techniques
 
-- 🐍 **Python** : Pandas, NumPy, Scikit-learn
-- 🤖 **Machine Learning** : Classification, déséquilibre de classes
-- 📊 **Analyse de données** : EDA, visualisation, statistiques
-- 🧪 **Feature Engineering** : Création de variables pertinentes
-- 🎯 **Évaluation de modèles** : Métriques, validation croisée
+- **Python** : Pandas, NumPy, Scikit-learn
+- **Machine Learning** : Classification, déséquilibre de classes
+- **Analyse de données** : EDA, visualisation, statistiques
+- **Feature Engineering** : Création de variables pertinentes
+- **Evaluation de modèles** : Métriques, validation croisée
 
 ### Compétences méthodologiques
 
-- 🔍 **Recherche documentaire** : Études GSMA, GIABA, BCEAO
-- 🎯 **Contextualisation** : Adaptation au marché sénégalais
-- 📝 **Documentation** : Code commenté, README détaillé
-- 🧪 **Rigueur scientifique** : Méthodologie reproductible
+- **Recherche documentaire** : Études GSMA, GIABA, BCEAO
+- **Contextualisation** : Adaptation au marché sénégalais
+- **Documentation** : Code commenté, README détaillé
+- **Rigueur scientifique** : Méthodologie reproductible
 
 ---
 
-## 💡 Intérêt du projet
+## Intérêt du projet
 
-✔️ Reflète un **cas d'usage réel** en fintech  
-✔️ Démontre la **maîtrise du ML** sur données déséquilibrées  
-✔️ Adapté au **contexte africain** (Mobile Money)  
-✔️ **Interprétable** et orienté métier  
-✔️ Pertinent pour **stages et emplois** en Data Science / IA  
+- Reflète un **cas d'usage réel** en fintech
+- Démontre la **maîtrise du ML** sur données déséquilibrées
+- Adapté au **contexte africain** (Mobile Money)
+- **Interprétable** et orienté métier
+- Pertinent pour **stages et emplois** en Data Science / IA
 
 ---
 
-## 🔮 Améliorations futures
+## Améliorations futures
 
 - [ ] Intégration **en temps réel** (streaming avec Kafka)
 - [ ] Modèles avancés (**XGBoost**, **LightGBM**, **Isolation Forest**)
@@ -259,7 +256,7 @@ jupyter notebook notebooks/
 
 ---
 
-## 📊 Métriques d'évaluation
+## Métriques d'évaluation
 
 ### Pourquoi pas seulement l'Accuracy ?
 
@@ -267,8 +264,8 @@ Avec **6% de fraudes**, un modèle qui prédit toujours "normal" aurait **94% d'
 
 ### Métriques pertinentes
 
-- **Recall (Sensibilité)** : % de fraudes correctement détectées → **Priorité #1**
-- **Precision** : % de vraies fraudes parmi les alertes → Éviter les faux positifs
+- **Recall (Sensibilité)** : % de fraudes correctement détectées -> Priorité n°1
+- **Precision** : % de vraies fraudes parmi les alertes -> Éviter les faux positifs
 - **F1-Score** : Équilibre Precision-Recall
 - **AUC-ROC** : Performance globale
 
@@ -283,15 +280,15 @@ Avec **6% de fraudes**, un modèle qui prédit toujours "normal" aurait **94% d'
 
 ---
 
-## 👤 Auteur
+## Auteur
 
 **Oumaro Titans DJIGUIMDE**  
 Étudiant en Ingénierie de Données et Intelligence Artificielle  
-📍 Sénégal  
+Sénégal
 
 ---
 
-## 📚 Références
+## Références
 
 ### Études et rapports
 
@@ -308,7 +305,7 @@ Avec **6% de fraudes**, un modèle qui prédit toujours "normal" aurait **94% d'
 
 ---
 
-## 📣 Conclusion
+## Conclusion
 
 Ce projet démontre une **approche professionnelle** de la détection de fraude, combinant **données, analyse et intelligence artificielle**, et constitue un excellent support pour des **candidatures en stage ou premier emploi** en Data Science et IA.
 
@@ -316,6 +313,6 @@ Le choix d'un **contexte sénégalais** reflète une volonté de valoriser les *
 
 ---
 
-⭐ **Si ce projet vous intéresse, n'hésitez pas à le cloner et l'adapter à vos besoins !**
+Si ce projet vous intéresse, n'hésitez pas à le cloner et l'adapter à vos besoins !
 
 **#DataScience #MachineLearning #FraudDetection #MobileMoney #Senegal #AI**
