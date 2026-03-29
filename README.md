@@ -80,10 +80,23 @@ Basés sur des études réelles (GSMA, GIABA, BCEAO) :
 Le dataset est **volontairement déséquilibré** (~6% de fraudes), ce qui reflète les cas réels et constitue un **défi technique** pour la modélisation.
 
 ---
+# FraudShield - Détection de fraude Mobile Money
+
+Application Streamlit de détection de fraude basée sur un modèle Random Forest.
+
+## Features
+- Dashboard interactif
+- Analyse exploratoire
+- Modèle IA (Random Forest)
+- Simulateur de transaction
+
+## Run
+streamlit run app.py
 
 ## Technologies utilisées
 
 - **Python 3.12**
+- Streamlit - Application
 - **Pandas** / **NumPy** - Manipulation de données
 - **Scikit-learn** - Machine Learning
 - **Matplotlib** / **Seaborn** - Visualisation
