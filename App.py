@@ -1293,10 +1293,9 @@ elif page == "Bénéfices & Impact":
             textfont=dict(family='JetBrains Mono', size=12, color='#e8edf5')
         ))
         fig.add_hline(y=0, line_color='#1e2a42', line_width=1)
-        fig.update_layout(**PLOTLY_LAYOUT, height=360,
-                          yaxis_title="Millions FCFA",
-                          xaxis=dict(gridcolor='rgba(0,0,0,0)'),
-                          yaxis=dict(gridcolor='#1e2a42'))
+        fig.update_layout(**PLOTLY_LAYOUT, height=360, yaxis_title="Millions FCFA")
+        fig.update_xaxes(gridcolor='rgba(0,0,0,0)')
+        fig.update_yaxes(gridcolor='#1e2a42')
         st.plotly_chart(fig, use_container_width=True)
 
         # Source note
