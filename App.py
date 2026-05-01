@@ -1286,34 +1286,32 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-        # Graphique waterfall ROI
-        st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown('<div class="section-title">Décomposition du ROI</div>', unsafe_allow_html=True)
+# Graphique waterfall ROI
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown('<div class="section-title">Décomposition du ROI</div>', unsafe_allow_html=True)
+waterfall_x = ["Fraude totale\névitée", "Coût faux\npositifs", "Coût solution\nIA", "ROI Net"]
+waterfall_y = [economies/1e6, -cout_faux_pos_total/1e6, -cout_solution/1e6, roi_net/1e6]
+colors_wf   = [COLOR_OK, COLOR_WARN, COLOR_FRAUD, COLOR_ACCENT if roi_net > 0 else COLOR_FRAUD]
+fig = go.Figure(go.Bar(
+    x=waterfall_x, y=waterfall_y,
+    marker_color=colors_wf,
+    text=[f"{v:+.1f}M FCFA" for v in waterfall_y],
+    textposition='outside',
+    textfont=dict(family='JetBrains Mono', size=12, color='#e8edf5')
+))
+fig.add_hline(y=0, line_color='#1e2a42', line_width=1)
+fig.update_layout(**PLOTLY_LAYOUT, height=360, yaxis_title="Millions FCFA")
+fig.update_xaxes(gridcolor='rgba(0,0,0,0)')
+fig.update_yaxes(gridcolor='#1e2a42')
+st.plotly_chart(fig, use_container_width=True)
 
-        waterfall_x = ["Fraude totale\névitée", "Coût faux\npositifs", "Coût solution\nIA", "ROI Net"]
-        waterfall_y = [economies/1e6, -cout_faux_pos_total/1e6, -cout_solution/1e6, roi_net/1e6]
-        colors_wf   = [COLOR_OK, COLOR_WARN, COLOR_FRAUD, COLOR_ACCENT if roi_net > 0 else COLOR_FRAUD]
-
-        fig = go.Figure(go.Bar(
-            x=waterfall_x, y=waterfall_y,
-            marker_color=colors_wf,
-            text=[f"{v:+.1f}M FCFA" for v in waterfall_y],
-            textposition='outside',
-            textfont=dict(family='JetBrains Mono', size=12, color='#e8edf5')
-        ))
-        fig.add_hline(y=0, line_color='#1e2a42', line_width=1)
-        fig.update_layout(**PLOTLY_LAYOUT, height=360, yaxis_title="Millions FCFA")
-        fig.update_xaxes(gridcolor='rgba(0,0,0,0)')
-        fig.update_yaxes(gridcolor='#1e2a42')
-        st.plotly_chart(fig, use_container_width=True)
-
-        # Source note
-        st.markdown("""
-        <div style="font-size:0.72rem; color:#6b7a99; font-family:'JetBrains Mono',monospace; margin-top:1rem; line-height:1.8;
-             background:#111520; border:1px solid #1e2a42; border-radius:8px; padding:0.8rem 1rem;">
-        <strong style="color:#e8edf5;">Sources :</strong> CGAP — Enquête nationale sur les risques SFN au Sénégal (2022) ·
-        BCEAO — Rapport annuel SFN UEMOA 2024 · GSMA — State of the Industry Report Mobile Money 2025 ·
-        Le360 Afrique — Pertes mobile money en Afrique (2024) · Ciberobs — Cybercriminalité mobile money Sénégal (2024) ·
-        HUB2 — Senegal payment market analysis (2025)
-        </div>
-        """, unsafe_allow_html=True)
+# Source note
+st.markdown("""
+<div style="font-size:0.72rem; color:#6b7a99; font-family:'JetBrains Mono',monospace; margin-top:1rem; line-height:1.8;
+     background:#111520; border:1px solid #1e2a42; border-radius:8px; padding:0.8rem 1rem;">
+<strong style="color:#e8edf5;">Sources :</strong> CGAP — Enquête nationale sur les risques SFN au Sénégal (2022) ·
+BCEAO — Rapport annuel SFN UEMOA 2024 · GSMA — State of the Industry Report Mobile Money 2025 ·
+Le360 Afrique — Pertes mobile money en Afrique (2024) · Ciberobs — Cybercriminalité mobile money Sénégal (2024) ·
+HUB2 — Senegal payment market analysis (2025)
+</div>
+""", unsafe_allow_html=True)
