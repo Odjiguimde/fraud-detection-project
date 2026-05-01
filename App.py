@@ -1233,48 +1233,58 @@ elif page == "Bénéfices & Impact":
             roi_net             = economies - cout_faux_pos_total - cout_solution
             roi_pct             = (roi_net / cout_solution * 100) if cout_solution > 0 else 0
 
-            st.markdown(f"""
-            <div style="background:#111520; border:1px solid #1e2a42; border-radius:12px; padding:1.4rem; margin-bottom:1rem;">
-                <div style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:#6b7a99;
-                     font-family:'JetBrains Mono',monospace; margin-bottom:1.2rem; border-bottom:1px solid #1e2a42; padding-bottom:0.6rem;">
-                    Résultats de la simulation
-                </div>
+            # ── Précalcul des variables conditionnelles ──
+roi_bg    = 'rgba(46,213,115,0.08)' if roi_net > 0 else 'rgba(255,71,87,0.08)'
+roi_border = '#2ed573' if roi_net > 0 else '#ff4757'
+roi_color  = '#2ed573' if roi_net > 0 else '#ff4757'
+roi_sign   = '+' if roi_pct > 0 else ''
 
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:1rem;">
-                    <div class="stat-highlight">
-                        <div class="val" style="color:#00e5ff; font-size:1.3rem;">{vol_an/1e9:.1f} Md</div>
-                        <div class="lbl">Volume annuel (FCFA)</div>
-                    </div>
-                    <div class="stat-highlight">
-                        <div class="val" style="color:#ff4757; font-size:1.3rem;">{montant_fraude/1e6:.1f}M</div>
-                        <div class="lbl">Fraude totale estimée (FCFA)</div>
-                    </div>
-                    <div class="stat-highlight">
-                        <div class="val" style="color:#2ed573; font-size:1.3rem;">{economies/1e6:.1f}M</div>
-                        <div class="lbl">Économies brutes (FCFA)</div>
-                    </div>
-                    <div class="stat-highlight">
-                        <div class="val" style="color:#ffd32a; font-size:1.3rem;">{cout_faux_pos_total/1e6:.1f}M</div>
-                        <div class="lbl">Coût faux positifs (FCFA)</div>
-                    </div>
-                </div>
+vol_an_fmt         = f"{vol_an/1e9:.1f}"
+montant_fraude_fmt = f"{montant_fraude/1e6:.1f}"
+economies_fmt      = f"{economies/1e6:.1f}"
+cout_faux_fmt      = f"{cout_faux_pos_total/1e6:.1f}"
+roi_net_fmt        = f"{roi_net/1e6:.1f}"
+roi_pct_fmt        = f"{roi_pct:.0f}"
 
-                <div style="background:{'rgba(46,213,115,0.08)' if roi_net > 0 else 'rgba(255,71,87,0.08)'};
-                     border:2px solid {'#2ed573' if roi_net > 0 else '#ff4757'};
-                     border-radius:10px; padding:1.2rem; text-align:center;">
-                    <div style="font-size:0.72rem; color:#6b7a99; font-family:'JetBrains Mono',monospace;
-                         text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.3rem;">ROI Net annuel</div>
-                    <div style="font-size:2.2rem; font-weight:800; font-family:'JetBrains Mono',monospace;
-                         color:{'#2ed573' if roi_net > 0 else '#ff4757'};">
-                        {roi_net/1e6:.1f}M FCFA
-                    </div>
-                    <div style="font-size:1rem; color:{'#2ed573' if roi_net > 0 else '#ff4757'};
-                         font-family:'JetBrains Mono',monospace; margin-top:0.3rem;">
-                        {'+' if roi_pct > 0 else ''}{roi_pct:.0f}% de retour sur investissement
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+st.markdown(f"""
+<div style="background:#111520; border:1px solid #1e2a42; border-radius:12px; padding:1.4rem; margin-bottom:1rem;">
+    <div style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:#6b7a99;
+         font-family:'JetBrains Mono',monospace; margin-bottom:1.2rem; border-bottom:1px solid #1e2a42; padding-bottom:0.6rem;">
+        Résultats de la simulation
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:1rem;">
+        <div class="stat-highlight">
+            <div class="val" style="color:#00e5ff; font-size:1.3rem;">{vol_an_fmt} Md</div>
+            <div class="lbl">Volume annuel (FCFA)</div>
+        </div>
+        <div class="stat-highlight">
+            <div class="val" style="color:#ff4757; font-size:1.3rem;">{montant_fraude_fmt}M</div>
+            <div class="lbl">Fraude totale estimée (FCFA)</div>
+        </div>
+        <div class="stat-highlight">
+            <div class="val" style="color:#2ed573; font-size:1.3rem;">{economies_fmt}M</div>
+            <div class="lbl">Économies brutes (FCFA)</div>
+        </div>
+        <div class="stat-highlight">
+            <div class="val" style="color:#ffd32a; font-size:1.3rem;">{cout_faux_fmt}M</div>
+            <div class="lbl">Coût faux positifs (FCFA)</div>
+        </div>
+    </div>
+    <div style="background:{roi_bg}; border:2px solid {roi_border};
+         border-radius:10px; padding:1.2rem; text-align:center;">
+        <div style="font-size:0.72rem; color:#6b7a99; font-family:'JetBrains Mono',monospace;
+             text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.3rem;">ROI Net annuel</div>
+        <div style="font-size:2.2rem; font-weight:800; font-family:'JetBrains Mono',monospace;
+             color:{roi_color};">
+            {roi_net_fmt}M FCFA
+        </div>
+        <div style="font-size:1rem; color:{roi_color};
+             font-family:'JetBrains Mono',monospace; margin-top:0.3rem;">
+            {roi_sign}{roi_pct_fmt}% de retour sur investissement
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
         # Graphique waterfall ROI
         st.markdown("<br>", unsafe_allow_html=True)
